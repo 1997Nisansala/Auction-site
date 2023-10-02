@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body{
+  /*background: #1d1e22;*/
+  /*background: hsla(181, 74%, 60%, 1);*/
+
+  /*background: linear-gradient(45deg, hsla(181, 74%, 60%, 1) 3%, hsla(195, 78%, 36%, 1) 37%, hsla(0, 0%, 0%, 1) 96%);*/
+
+  /*background: -moz-linear-gradient(45deg, hsla(181, 74%, 60%, 1) 3%, hsla(195, 78%, 36%, 1) 37%, hsla(0, 0%, 0%, 1) 96%);*/
+
+  /*background: -webkit-linear-gradient(45deg, hsla(181, 74%, 60%, 1) 3%, hsla(195, 78%, 36%, 1) 37%, hsla(0, 0%, 0%, 1) 96%);*/
+
+  /*!*filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#4EE1E4", endColorstr="#1480A4", GradientType=1 );*!*/
+  /*font-family: Arial, sans-serif;*/
+}

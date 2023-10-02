@@ -1,0 +1,27 @@
+<div>
+    <!-- Your navigation bar component -->
+    <app-admin-nav-bar></app-admin-nav-bar>
+  </div>
+  <br>
+  <h2 align = "center">Completed Bidding Items</h2>
+  <br>
+  <table class="rtable">
+    <thead>
+      <tr>
+        <th>ItemID</th>
+        <th>Winner</th>
+        <th>Price</th>
+        <th>Starting Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Use the async pipe to subscribe to the items$ observable -->
+      <tr *ngFor="let item of items$ | async">
+        <td>{{ item.itemId }}</td>
+        <td>{{ item.highestbidder }}</td>
+        <td>{{ item.highestbid }}</td>
+        <td>{{ item.startingPrice }}</td>
+      </tr>
+    </tbody>
+  </table>
+  

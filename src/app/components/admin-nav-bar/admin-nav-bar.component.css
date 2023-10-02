@@ -1,0 +1,35 @@
+/* Add this CSS to your styles.css or a custom stylesheet */
+.custom-navbar {
+    background: hsla(181, 74%, 60%, 1);
+    background: linear-gradient(
+      45deg,
+      hsla(181, 74%, 60%, 1) 3%,
+      hsla(195, 78%, 36%, 1) 37%,
+      hsla(0, 0%, 0%, 1) 96%
+    );
+    background: -moz-linear-gradient(
+      45deg,
+      hsla(181, 74%, 60%, 1) 3%,
+      hsla(195, 78%, 36%, 1) 37%,
+      hsla(0, 0%, 0%, 1) 96%
+    );
+    background: -webkit-linear-gradient(
+      45deg,
+      hsla(181, 74%, 60%, 1) 3%,
+      hsla(195, 78%, 36%, 1) 37%,
+      hsla(0, 0%, 0%, 1) 96%
+    );
+  }
+  
+  .custom-navbar .navbar-toggler-icon {
+    background-color: #fff; /* Change the color of the toggle icon */
+  }
+  
+  .custom-navbar .navbar-nav .nav-link {
+    color: #fff; /* Change the color of the nav links */
+  }
+  
+  .custom-navbar .navbar-nav .nav-link.active {
+    font-weight: bold; /* Add bold style to the active link */
+  }
+  

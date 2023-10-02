@@ -1,0 +1,48 @@
+<div class="card d-flex align-items-stretch h-100">
+    <div class="card-body">
+      <form>
+        <div class="timer-container">
+          <!-- Timer for the specific item -->
+          <div class="form-group">
+            <countdown [(ngModel)]="item.counter" [config]="{ leftTime: item.counter, notify: 0 }" (event)="handleEvent($event)" ></countdown>
+          </div>
+        </div>
+        <!-- Item Name -->
+        <h2>{{ item.itemName }}</h2>
+        <!-- <h2>{{ item.itemId }}</h2> -->
+        <strong>The Highest Bid: {{ item.highestbid }}</strong>
+        <!-- Image container with a specific size -->
+        <div class="image-container">
+          <img [src]="item.imageUrl" alt="Item Image">
+        </div>
+  
+        <!-- Item Description -->
+        <div class="form-group">
+          <label for="email">Description: {{ item.itemDescription }}</label>
+        </div>
+  
+        <!-- Starting Price (in bold) -->
+        <div class="form-group">
+          <strong>Starting Price: {{ item.startingPrice }}</strong>
+        </div>
+  
+        <!-- Rating -->
+        <div class="form-group">
+          <label for="rating">Rating: {{ item.rating }}</label>
+          
+        </div>
+  
+        <!-- Input Field for Offer -->
+        <div class="form-group">
+          <label for="offerAmount">Enter Your Offer:</label>
+          <input type="number" id="item.bid" name="item.bid" required [(ngModel)]="item.bid">
+        </div>
+  
+        <!-- Submit Button for Offer -->
+        <div class="form-group">
+          <button type="button" (click)="updateItem(item)" [disabled]="isSubmitButtonDisabled">Submit Offer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

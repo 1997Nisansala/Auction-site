@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "visitors-monitoring-e3b77": {
+      "hosting": {
+        "visitors-monitor": [
+          "visitors-monitoring-e3b77"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "visitors-monitoring-e3b77"
+  }
+}

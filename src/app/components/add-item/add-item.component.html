@@ -1,0 +1,57 @@
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div>
+    <app-admin-nav-bar></app-admin-nav-bar>
+  </div>
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <form align="center" id="addItemForm" #itemForm="ngForm">
+    <h3>Item Details</h3>
+    <div class="form-group">
+      <div class="input-with-button">
+        <input type="text" id="itemId" name="itemId" placeholder="Enter item ID" required [(ngModel)]="itemId" #itemIdInput="ngModel">
+        <button type="button" class="search-button" (click)="searchItem()">Search</button>
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="text" id="itemName" name="itemName" placeholder="Enter item name" required
+             [(ngModel)]="itemName" #itemNameInput="ngModel">
+    </div>
+    <div class="form-group">
+      <input type="text" id="itemDescription" name="itemDescription" placeholder="Enter item description" required
+             [(ngModel)]="itemDescription" #itemDescriptionInput="ngModel">
+    </div>
+    <div class="form-group">
+      <input type="file" id="itemPhotos" name="itemPhotos" multiple accept="image/*" required (change)="onFileChange($event)">
+    </div>
+    <div class="form-group">
+      <label for="rating">Enter Starting Price :</label>
+      <input type="text" id="startingPrice" name="startingPrice" placeholder="Enter price" required
+             [(ngModel)]="startingPrice" #startingPriceInput="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="rating">Select Rating:</label>
+      <select id="rating" name="rating" [(ngModel)]="rating" #ratingInput="ngModel" required>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <div class="button-row"> 
+        <button type="button" (click)="addItem()">Insert</button>
+        <button type="button" (click)="updateItem()">Update</button>
+        <button type="button" (click)="deleteItem()">Delete</button>
+      </div>
+    </div>
+  </form>
+</body>
+
+
+

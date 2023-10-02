@@ -1,0 +1,40 @@
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div>
+    <app-admin-nav-bar></app-admin-nav-bar>
+  </div>
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <form align="center" id="addItemForm" #itemForm="ngForm">
+    <h3>User Details</h3>
+    <div class="form-group">
+      <div class="input-with-button">
+        <input type="email" id="email" name="email" placeholder="Enter email" [(ngModel)]="email">
+        <button type="button" class="search-button" (click)="searchUser()">Search</button>
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="text" id="username" name="username" placeholder="Enter displayname" required [(ngModel)]="displayName">
+    </div>
+    <div class="form-group">
+      <input type="text" id="rating" name="rating" placeholder="Enter your rating" [(ngModel)]="rating">
+    </div>
+    <br>
+    <div class="form-group">
+      <div class="button-row"> 
+        <button type="button" (click)="addUser()">Insert</button>
+        <button type="button" (click)="updateUser()">Update</button>
+        <button type="button" (click)="deleteUser()">Delete</button>
+      </div>
+    </div>
+  </form>
+</body>
+
+
+
