@@ -1,42 +1,49 @@
-/* Styles to center the table on the page */
+/* Styles to center the table and sorting buttons on the page */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
 
-  h2 {
-    align-items: center;
-  }
-  
-  /* Style the table */
-  table.rtable {
-    width: 80%; /* Adjust the width as needed */
-    border-collapse: collapse;
-    text-align: left;
-    margin: 20px; /* Add some margin to the table */
-  }
-  
-  table.rtable th,
-  table.rtable td {
-    padding: 10px;
-    border: 1px solid #ccc; /* Add borders to cells */
-  }
-  
-  /* Style the table header */
-  table.rtable th {
-    background-color: #f2f2f2; /* Light gray background for header */
-  }
-  
-  /* Style alternating rows */
-  table.rtable tbody tr:nth-child(even) {
-    background-color: #f2f2f2; /* Light gray background for even rows */
-  }
-  
-  /* Style table rows on hover */
-  table.rtable tbody tr:hover {
-    background-color: #ddd; /* Darker gray background on hover */
-  }
-  
+/* Center the table title (h2) */
+h2 {
+  text-align: center;
+}
+
+/* Center the sorting buttons */
+div {
+  text-align: center;
+  margin-bottom: 20px; /* Add some spacing below the buttons */
+}
+
+/* Style the table */
+table.rtable {
+  width: 80%; /* Adjust the width as needed */
+  border-collapse: collapse;
+  text-align: left;
+  margin: 20px; /* Add some margin to the table */
+}
+
+table.rtable th,
+table.rtable td {
+  padding: 10px;
+  border: 1px solid #ccc; /* Add borders to cells */
+}
+
+/* Style the table header */
+table.rtable th {
+  background-color: #f2f2f2; /* Light gray background for header */
+}
+
+/* Style alternating rows */
+table.rtable tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Light gray background for even rows */
+}
+
+/* Style table rows on hover */
+table.rtable tbody tr:hover {
+  background-color: #ddd; /* Darker gray background on hover */
+}

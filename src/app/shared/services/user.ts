@@ -16,6 +16,7 @@ export interface Item {
   rating: string;
   highestbid : number;
   highestbidder : string;
+  rankofhighestbidder : string;
   counter : number;
   date : Date;
 }

@@ -1,27 +1,35 @@
 <div>
-    <!-- Your navigation bar component -->
-    <app-admin-nav-bar></app-admin-nav-bar>
-  </div>
-  <br>
-  <h2 align = "center">Completed Bidding Items</h2>
-  <br>
-  <table class="rtable">
-    <thead>
-      <tr>
-        <th>ItemID</th>
-        <th>Winner</th>
-        <th>Price</th>
-        <th>Starting Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Use the async pipe to subscribe to the items$ observable -->
-      <tr *ngFor="let item of items$ | async">
-        <td>{{ item.itemId }}</td>
-        <td>{{ item.highestbidder }}</td>
-        <td>{{ item.highestbid }}</td>
-        <td>{{ item.startingPrice }}</td>
-      </tr>
-    </tbody>
-  </table>
-  
+  <!-- Your navigation bar component -->
+  <app-admin-nav-bar></app-admin-nav-bar>
+</div>
+<br>
+<h2 align="center">Completed Bidding Items</h2>
+<br>
+<!-- Sort buttons -->
+<div>
+  <button (click)="sortByRankOfItem()">Sort by Rank of Item</button>
+  <button (click)="sortByRankOfWinner()">Sort by Rank of Winner</button>
+</div>
+<table class="rtable">
+  <thead>
+    <tr>
+      <th>ItemID</th>
+      <th>Rank of Item</th>
+      <th>Winner</th>
+      <th>Rank of Winner</th>
+      <th>Price</th>
+      <th>Starting Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Use the async pipe to subscribe to the items$ observable -->
+    <tr *ngFor="let item of items$ | async">
+      <td>{{ item.itemId }}</td>
+      <td>{{ item.rating }}</td>
+      <td>{{ item.highestbidder }}</td>
+      <td>{{ item.rankofhighestbidder }}</td>
+      <td>{{ item.highestbid }}</td>
+      <td>{{ item.startingPrice }}</td>
+    </tr>
+  </tbody>
+</table>

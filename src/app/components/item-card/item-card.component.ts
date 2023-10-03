@@ -91,18 +91,34 @@ export class ItemCardComponent {
       console.error('Item ID field is empty. Please enter an item ID.');
       return;
     }
-    
+  
     if (this.userRating === 'A' || (this.userRating === 'B' && (item.rating === 'B' || item.rating === 'C')) || (this.userRating === 'C' && item.rating === 'C')) {
       const itemId = item.itemId;
       const itemName = item.itemName;
-
+  
       if (item.highestbid == null) {
         item.highestbid = 0;
       }
-
+  
+      // Update the "bids" collection
+      this.firestore.collection('bids').add({
+        itemId: itemId,
+        highestbid: item.highestbid,
+        highestbidder: this.data,
+        date: this.today,
+        rankofhighestbidder: this.userRating,
+        counter: 180,
+      }).then(() => {
+        console.log('Bid added to "bids" collection successfully.');
+      }).catch(error => {
+        console.error('Error adding bid to "bids" collection', error);
+        window.alert('Error adding bid to "bids" collection: ' + error);
+      });
+  
       if (item.bid > item.highestbid && item.bid > item.startingPrice) {
         item.highestbid = item.bid;
-
+  
+        // Update the "items" collection
         this.firestore.collection('items', ref => ref.where('itemId', '==', itemId))
           .get()
           .subscribe(querySnapshot => {
@@ -111,23 +127,26 @@ export class ItemCardComponent {
             } else {
               querySnapshot.forEach(doc => {
                 const itemDocRef = doc.ref;
-
+  
                 itemDocRef.update({
                   highestbid: item.highestbid,
                   highestbidder: this.data,
-                  date : this.today,
-                  counter : 180,
+                  date: this.today,
+                  rankofhighestbidder: this.userRating,
+                  counter: 180,
                 }).then(() => {
-                  console.log('Bid updated successfully.');
+                  console.log('Bid updated successfully in "items" collection.');
+                  window.alert('Your Bid updated successfully');
                 }).catch(error => {
-                  console.error('Error updating Bid', error);
+                  console.error('Error updating Bid in "items" collection', error);
+                  window.alert('Error updating Bid in "items" collection: ' + error);
                 });
               });
             }
           }, error => {
             console.error('Error searching for item:', error);
           });
-
+  
       } else {
         console.log('The new offer is not higher than the current highest bid.');
         alert('The new offer is not higher than the current highest bid.');
@@ -136,7 +155,7 @@ export class ItemCardComponent {
       console.log('User does not have permission to submit an offer on this item.');
       alert('User does not have permission to submit an offer on this item.');
     }
-  }
+  }  
 }
 
 export interface Item {
