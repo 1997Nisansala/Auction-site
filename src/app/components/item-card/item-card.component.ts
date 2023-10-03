@@ -84,8 +84,6 @@ export class ItemCardComponent {
       });
   }
 
-  
-
   updateItem(item: Item) {
     if (!item.itemId) {
       console.error('Item ID field is empty. Please enter an item ID.');
@@ -106,6 +104,8 @@ export class ItemCardComponent {
         highestbid: item.highestbid,
         highestbidder: this.data,
         date: this.today,
+        rating : item.rating,
+        startingPrice : item.startingPrice,
         rankofhighestbidder: this.userRating,
         counter: 180,
       }).then(() => {
@@ -133,6 +133,8 @@ export class ItemCardComponent {
                   highestbidder: this.data,
                   date: this.today,
                   rankofhighestbidder: this.userRating,
+                  rating : item.rating,
+                  startingPrice : item.startingPrice,
                   counter: 180,
                 }).then(() => {
                   console.log('Bid updated successfully in "items" collection.');
