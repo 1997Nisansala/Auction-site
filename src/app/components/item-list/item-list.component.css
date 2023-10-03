@@ -1,7 +1,13 @@
-  
-  .body {
-    background-color: rgb(245, 245, 245);
-  }
+
+.body {
+  background-image: url('https://t3.ftcdn.net/jpg/03/55/60/70/360_F_355607062_zYMS8jaz4SfoykpWz5oViRVKL32IabTP.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed; /* Optional: Makes the background image fixed */
+  background-color: rgb(121, 112, 112);
+}
+
 
 .image-container {
     width: 200px; /* Adjust the width to your desired size */

@@ -9,6 +9,7 @@
         <thead>
         <tr>
             <th>ItemID</th>
+            <th>Item Name</th>
             <th>Rank of Item</th>
             <th>Price</th>
             <th>Starting Price</th>
@@ -18,6 +19,7 @@
             <!-- Use the async pipe to subscribe to the items$ observable -->
             <tr *ngFor="let item of bids$ | async">
             <td>{{ item.itemId }}</td>
+            <td>{{ item.itemName }}</td>
             <td>{{ item.rating }}</td>
             <td>{{ item.highestbid }}</td>
             <td>{{ item.startingPrice }}</td>
@@ -25,5 +27,26 @@
         </tbody>
     </table>
   </div>
+  <h2 align="center">Your Winning Items</h2>
+  <br>
+  <table class="rtable">
+    <thead>
+      <tr>
+        <th>ItemID</th>
+        <th>Rank of Item</th>
+        <th>Price</th>
+        <th>Starting Price</th>
+      </tr>
+    </thead>
+    <tbody>
+        <!-- Use the async pipe to subscribe to the items$ observable -->
+        <tr *ngFor="let item of items$ | async">
+          <td>{{ item.itemId }}</td>
+          <td>{{ item.rating }}</td>
+          <td>{{ item.highestbid }}</td>
+          <td>{{ item.startingPrice }}</td>
+        </tr>
+      </tbody>
+  </table>
   
   

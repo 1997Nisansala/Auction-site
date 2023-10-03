@@ -101,6 +101,7 @@ export class ItemCardComponent {
       // Update the "bids" collection
       this.firestore.collection('bids').add({
         itemId: itemId,
+        itemName : item.itemName,
         highestbid: item.highestbid,
         highestbidder: this.data,
         date: this.today,
@@ -129,6 +130,7 @@ export class ItemCardComponent {
                 const itemDocRef = doc.ref;
   
                 itemDocRef.update({
+                  itemName : item.itemName,
                   highestbid: item.highestbid,
                   highestbidder: this.data,
                   date: this.today,

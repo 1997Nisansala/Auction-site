@@ -14,9 +14,12 @@ export class UserStatisticsComponent implements OnInit {
   bidsCollection: AngularFirestoreCollection<Bids>;
   bids$: Observable<Bids[]> | undefined;
   data: any;
+  itemsCollection: AngularFirestoreCollection<Item>;
+  items$: Observable<Item[]> | undefined;
 
   constructor(private readonly firestore: AngularFirestore) {
     this.bidsCollection = this.firestore.collection<Bids>('bids');
+    this.itemsCollection = this.firestore.collection<Item>('items');
   }
 
   ngOnInit() {
@@ -28,6 +31,9 @@ export class UserStatisticsComponent implements OnInit {
       // Now that you have retrieved the data, you can use it to set up your Firestore collection.
       this.bidsCollection = this.firestore.collection<Bids>('bids', ref => ref.where('highestbidder', '==', this.data));
       this.bids$ = this.bidsCollection.valueChanges();
+
+      this.itemsCollection = this.firestore.collection<Item>('items', ref => ref.where('highestbidder', '==', this.data));
+      this.items$ = this.itemsCollection.valueChanges();
     }
   }
 }

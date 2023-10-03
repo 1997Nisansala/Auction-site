@@ -6,9 +6,13 @@
     margin: 0;
     box-sizing: border-box;
 }
-body{
-    background-color: #080710;
-}
+body {
+    background-image: url('https://img.freepik.com/free-vector/abstract-design-background-circles-pale-spectrum-colours_1048-13822.jpg?w=740&t=st=1696331752~exp=1696332352~hmac=8e1f3622fb49632c0e49cec19e21050070722e9a0b3eb5c07dcaf799f69f501a'); /* Replace with the path to your image */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: #ffffff;
+  }
 .background{
     width: 430px;
     height: 520px;
