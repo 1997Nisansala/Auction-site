@@ -6,19 +6,15 @@
 <h2 align="center">Completed Bidding Items</h2>
 <br>
 <!-- Sort buttons -->
-<div>
-  <button (click)="sortByRankOfItem()">Sort by Rank of Item</button>
-  <button (click)="sortByRankOfWinner()">Sort by Rank of Winner</button>
-</div>
 <table class="rtable">
   <thead>
     <tr>
-      <th>ItemID</th>
-      <th>Rank of Item</th>
-      <th>Winner</th>
-      <th>Rank of Winner</th>
-      <th>Price</th>
-      <th>Starting Price</th>
+      <th (click)="sortByItemIDAscending() ">ItemID &#9660;</th>
+      <th (click)="sortByRankOfItem()">Rank of Item &#9660;</th>
+      <th (click)="sortByWinnerAscending()">Winner &#9660;</th>
+      <th (click)="sortByRankOfWinner()">Rank of Winner &#9660;</th>
+      <th (click)="sortByHighestBid()">Price &#9660;</th>
+      <th (click)="sortByStartingPriceAscending()">Starting Price &#9660;</th>
     </tr>
   </thead>
   <tbody>
@@ -33,3 +29,4 @@
     </tr>
   </tbody>
 </table>
+

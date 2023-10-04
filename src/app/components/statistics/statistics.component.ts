@@ -48,4 +48,36 @@ export class StatisticsComponent implements OnInit {
       })
     );
   }
+
+  // Custom sorting function for highestbid value
+  sortByHighestBid() {
+    this.items$ = this.items$.pipe(
+      map(items => {
+        // Sort items based on the highestbid value in ascending order
+        return items.sort((a, b) => a.highestbid - b.highestbid);
+      })
+    );
+  }
+
+  // Custom sorting function for ItemID in ascending order
+  sortByItemIDAscending() {
+    this.items$ = this.items$.pipe(
+      map(items => items.sort((a, b) => a.itemId.localeCompare(b.itemId)))
+    );
+  }
+
+  // Custom sorting function for Winner in alphabetical order
+  sortByWinnerAscending() {
+    this.items$ = this.items$.pipe(
+      map(items => items.sort((a, b) => a.highestbidder.localeCompare(b.highestbidder)))
+    );
+  }
+
+  // Custom sorting function for Starting Price in ascending order
+  sortByStartingPriceAscending() {
+    this.items$ = this.items$.pipe(
+      map(items => items.sort((a, b) => a.startingPrice - b.startingPrice))
+    );
+  }
+
 }
