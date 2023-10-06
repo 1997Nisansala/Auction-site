@@ -4,7 +4,7 @@
         <div class="timer-container">
           <!-- Timer for the specific item -->
           <div class="form-group">
-            <countdown [(ngModel)]="item.counter" [config]="{ leftTime: item.counter, notify: 0 }" (event)="handleEvent($event)" ></countdown>
+            <countdown [(ngModel)]="gap" [config]="{ leftTime: gap, notify: 0 }" (event)="handleEvent($event)" ></countdown>
           </div>
         </div>
         <!-- Item Name -->

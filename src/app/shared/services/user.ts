@@ -5,6 +5,7 @@ export interface User {
   photoURL: string;
   emailVerified: boolean;
   rating : string;
+  password : string;
 }
 
 export interface Item {

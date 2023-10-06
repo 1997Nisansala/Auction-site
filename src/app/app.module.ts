@@ -35,6 +35,7 @@ import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { LoginNavBarComponent } from './components/login-nav-bar/login-nav-bar.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { UserStatisticsComponent } from './components/user-statistics/user-statistics.component';
+import { AdminItemListComponent } from './components/admin-item-list/admin-item-list.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { UserStatisticsComponent } from './components/user-statistics/user-stati
     LoginNavBarComponent,
     StatisticsComponent,
     UserStatisticsComponent,
+    AdminItemListComponent,
     ],
   imports: [
     BrowserModule,

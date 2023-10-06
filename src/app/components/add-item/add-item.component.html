@@ -28,6 +28,10 @@
              [(ngModel)]="itemDescription" #itemDescriptionInput="ngModel">
     </div>
     <div class="form-group">
+      <input type="text" id="itemCounter" name="itemCounter" placeholder="Enter Timer Value in Seconds" required
+             [(ngModel)]="counter" #itemDescriptionInput="ngModel">
+    </div>
+    <div class="form-group">
       <input type="file" id="itemPhotos" name="itemPhotos" multiple accept="image/*" required (change)="onFileChange($event)">
     </div>
     <div class="form-group">

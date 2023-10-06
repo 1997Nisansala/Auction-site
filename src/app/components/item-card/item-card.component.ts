@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { User } from 'src/app/shared/services/user';
 import { CountdownEvent } from "ngx-countdown";
@@ -14,13 +14,29 @@ export class ItemCardComponent {
   userRating: any;
   counter : any;
 
+  gap : number = 0;
+
   today = new Date();
+
+  
 
   isSubmitButtonDisabled: boolean = false; 
 
   constructor(private readonly firestore: AngularFirestore) {
-    
+    //alert( this.item.time);
+    //this.gap = Date.now() - this.item.time;
   }
+  ngOnChanges(changes: SimpleChanges) { 
+      // Recalculate 'gap' whenever 'item' changes
+      const  t1 = (Date.now() - this.item.time)/1000;
+      if(this.item.counter > t1){
+        this.gap = this.item.counter - t1;
+      }
+      else{
+        this.gap = 0;
+      }
+  }
+
   handleEvent(event: CountdownEvent): void {
     if (event.action === 'done' && this.item.counter > 0) {
       // The countdown has reached 0, update the counter in the database
@@ -137,7 +153,7 @@ export class ItemCardComponent {
                   rankofhighestbidder: this.userRating,
                   rating : item.rating,
                   startingPrice : item.startingPrice,
-                  counter: 180,
+                  counter : (Number(item.counter) + 180).toString(),
                 }).then(() => {
                   console.log('Bid updated successfully in "items" collection.');
                   window.alert('Your Bid updated successfully');
@@ -173,4 +189,5 @@ export interface Item {
   bid: number;
   counter : number;
   date : Date;
+  time : number;
 }

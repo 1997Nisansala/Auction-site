@@ -1,0 +1,23 @@
+
+.body {
+    background-image: url('https://t3.ftcdn.net/jpg/03/55/60/70/360_F_355607062_zYMS8jaz4SfoykpWz5oViRVKL32IabTP.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* Optional: Makes the background image fixed */
+    background-color: rgb(121, 112, 112);
+  }
+  
+  
+  .image-container {
+      width: 200px; /* Adjust the width to your desired size */
+      height: 150px; /* Adjust the height to your desired size */
+      overflow: hidden; /* Ensures the image fits within the container */
+    }
+    
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Keeps the image aspect ratio and fills the container */
+    }
+  

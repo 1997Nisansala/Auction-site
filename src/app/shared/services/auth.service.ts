@@ -38,7 +38,7 @@ export class AuthService {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.SetUserData(result.user);
+        //this.SetUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             localStorage.setItem('key', JSON.stringify(user.email));
@@ -60,7 +60,7 @@ SignInAdmin(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.SetUserData(result.user);
+        //this.SetUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             this.router.navigate(['add-item']);
@@ -88,7 +88,7 @@ SignInAdmin(email: string, password: string) {
         // this.SendVerificationMail();
         window.alert("User registered Succesfully");
         this.router.navigate(['']);
-        this.SetUserData(result.user);
+        this.SetUserData2(result.user, password);
       })
       .catch((error) => {
         window.alert(error.message);
@@ -152,7 +152,36 @@ SignInAdmin(email: string, password: string) {
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
-      rating: 'C'
+      rating: 'C',
+      password : user.password
+    };
+  
+    // Save data to Firestore
+    const userFirestoreRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+    userFirestoreRef.set(userData, { merge: true });
+  
+    // Save data to Realtime Database
+    const userRealtimeRef = this.db.object(`users/${user.uid}`);
+    userRealtimeRef.set(userData)
+      .then(() => {
+        console.log('Data successfully written to the Realtime Database.');
+      })
+      .catch(error => {
+        console.error('Error writing data to the Realtime Database:', error);
+      });
+  
+    return Promise.resolve(true);
+  }
+
+  SetUserData2(user: any, password: string) {
+    const userData: User = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL,
+      emailVerified: user.emailVerified,
+      rating: 'C',
+      password : password
     };
   
     // Save data to Firestore

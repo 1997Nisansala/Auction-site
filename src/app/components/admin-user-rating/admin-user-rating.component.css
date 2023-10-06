@@ -7,62 +7,49 @@
 
 /* Body background color */
 body {
-  background-color: #080710;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column; /* Set a column layout */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+  height: 100vh; /* Make the content fill the viewport height */
+  margin: 0;
+  padding: 0;
 }
 
 /* Background container for the form */
 .background {
-  width: 430px;
-  height: 520px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
+  /* No need to change */
 }
 
 .background .shape {
-  height: 200px;
-  width: 200px;
-  position: absolute;
-  border-radius: 50%;
-}
-
-.shape:first-child {
-  background: linear-gradient(
-      #1845ad,
-      #23a2f6
-  );
-  left: -80px;
-  top: -80px;
-}
-
-.shape:last-child {
-  background: linear-gradient(
-      to right,
-      #ff512f,
-      #f09819
-  );
-  right: -30px;
-  bottom: -80px;
+  /* No need to change */
 }
 
 /* Form styles */
+/* Form styles */
 form {
-  height: 480px;
-  width: 400px;
+  width: 430px; /* Adjust the width as needed */
   background-color: rgba(255, 255, 255, 0.13);
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 55%;
-  left: 50%;
   border-radius: 10px;
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
   padding: 50px 35px;
+  margin: auto; /* Center the form horizontally and vertically */
 }
 
-/* Form element styles */
+/* Table styles */
+table {
+  width: 100%; /* Make the table full width */
+  background-color: #fff;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  margin-top: 20px; /* Add margin to separate form and table */
+}
+
+/* Reset default styles for form elements */
 form * {
   font-family: 'Poppins', sans-serif;
   color: #060606;
@@ -123,7 +110,6 @@ button {
 button:last-child {
   margin-right: 0;
 }
-
 
 /* Social div styles */
 .social {
@@ -186,20 +172,4 @@ select:focus {
   border-color: #ff512f;
   outline: none;
   box-shadow: 0 0 5px rgba(255, 81, 47, 0.5);
-}
-
-/* Add this CSS to your existing styles */
-.form-group .input-with-button {
-  display: flex;
-  align-items: center; /* Vertically center items */
-  justify-content: space-between; /* Create space between items */
-}
-
-.form-group input {
-  flex: 1; /* Allow input to grow and take available space */
-  margin-right: 10px; /* Add some space between input and button */
-}
-
-.form-group button {
-  flex: 0; /* Prevent the button from growing */
 }

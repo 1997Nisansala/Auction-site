@@ -18,7 +18,7 @@ export class AddItemComponent {
   rating: string = '';
   highestbid : number = 0;
   highestbidder : string = '';
-  counter : number = 180;
+  counter : string = '';
 
   constructor(private fireStorage: AngularFireStorage, private firestore: AngularFirestore) {}
 
@@ -60,13 +60,14 @@ export class AddItemComponent {
         } else {
           querySnapshot.forEach(doc => {
             const itemData = doc.data() as Item;
-            console.log('User found:', itemData);
+            console.log('Item found:', itemData);
             this.itemId = itemData.itemId;
             this.itemName = itemData.itemName;
             this.itemDescription = itemData.itemDescription;
             this.startingPrice = itemData.startingPrice;
-            this.imageUrl = '';
+            this.imageUrl = itemData.imageUrl;
             this.rating = itemData.rating;
+            this.counter = itemData.counter.toString();
           });
         }
       }, error => {
@@ -98,8 +99,10 @@ export class AddItemComponent {
               startingPrice : this.startingPrice,
               imageUrl : this.imageUrl,
               rating: this.rating,
+              counter : this.counter,
+              time : Date.now()
             }).then(() => {
-              window.alert('User updated successfully.');
+              window.alert('Item updated successfully.');
             }).catch(error => {
               window.alert('Error updating user:'+ error);
             });
@@ -142,6 +145,7 @@ export class AddItemComponent {
                   this.startingPrice = 0;
                   this.imageUrl = '';
                   this.rating = '';
+                  this.counter = '0';
                 })
                 .catch(error => {
                   console.error('Error deleting item:', error);
@@ -171,6 +175,7 @@ export class AddItemComponent {
       highestbid : this.highestbid,
       highestbidder : this.highestbidder,
       counter : this.counter,
+      time : Date.now(),
     };
 
     this.firestore.collection('items', ref => ref.where('itemId', '==', this.itemId))

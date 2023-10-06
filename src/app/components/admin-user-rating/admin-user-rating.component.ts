@@ -12,8 +12,13 @@ export class AdminUserRatingComponent {
   rating: string = '';
   email: string = '';
   displayName : string = '';
+  usersCollection: AngularFirestoreCollection<User>;
+  users$: Observable<User[]>;
 
-  constructor(private firestore: AngularFirestore) {}
+  constructor(private firestore: AngularFirestore) {
+    this.usersCollection = firestore.collection<User>('users');
+    this.users$ = this.usersCollection.valueChanges();
+  }
 
   addUser() {
     // Create an object with user details
@@ -23,7 +28,8 @@ export class AdminUserRatingComponent {
       emailVerified: false,
       rating: this.rating,
       uid: '',
-      displayName: this.displayName
+      displayName: this.displayName,
+      password : ''
     };
 
     // Add the user to Firestore collection (e.g., 'users')

@@ -12,6 +12,7 @@ import { AdminUserRatingComponent } from './components/admin-user-rating/admin-u
 import { ItemListComponent } from './components/item-list/item-list.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { UserStatisticsComponent } from './components/user-statistics/user-statistics.component';
+import { AdminItemListComponent } from './components/admin-item-list/admin-item-list.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/sign-in', pathMatch: 'full'},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'item-details', component: ItemListComponent },
   {path: 'statistics', component: StatisticsComponent },
   {path: 'user-statistics', component: UserStatisticsComponent },
+  {path: 'admin-itemlist', component: AdminItemListComponent },
 ];
 
 @NgModule({

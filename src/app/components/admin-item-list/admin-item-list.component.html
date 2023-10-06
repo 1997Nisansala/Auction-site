@@ -1,0 +1,18 @@
+<div>
+    <!-- Your navigation bar component -->
+    <app-admin-nav-bar></app-admin-nav-bar>
+  </div>
+  <div class="body">
+    <br><br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let item of items$ | async">
+          <div class="card d-flex align-items-stretch h-100">
+            <app-item-card [item]="item"></app-item-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
