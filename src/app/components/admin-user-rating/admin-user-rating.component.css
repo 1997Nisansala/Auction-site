@@ -12,7 +12,6 @@ body {
   flex-direction: column; /* Set a column layout */
   align-items: center; /* Center content horizontally */
   justify-content: center; /* Center content vertically */
-  height: 100vh; /* Make the content fill the viewport height */
   margin: 0;
   padding: 0;
 }
@@ -41,13 +40,48 @@ form {
 
 /* Table styles */
 table {
-  width: 100%; /* Make the table full width */
+  width: 430px;
   background-color: #fff;
+  border-collapse: collapse; /* Collapse table borders */
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
   margin-top: 20px; /* Add margin to separate form and table */
 }
+
+/* Table header styles */
+table th {
+  background-color: #f2f2f2;
+  padding: 15px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Table row styles */
+table tr {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Table cell styles */
+table td {
+  padding: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Style alternating table rows for better readability */
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Add hover effect to table rows */
+table tr:hover {
+  background-color: #f2f2f2;
+}
+
 
 /* Reset default styles for form elements */
 form * {
